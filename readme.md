@@ -33,21 +33,18 @@ This project demonstrates an intricate understanding of microservices deployment
 2. **Helmfile Sync**: This command, `helmfile sync`, will deploy all Helm releases defined in the `helmfile.yaml`. It references the Helm templates and dynamically fills in the values for each microservice:
    ```bash
    helmfile sync
+   ```
 
-/// Monitor Deployment:
+## Monitor Deployment:
 
-bash
+```bash
+kubectl get pods -w
+```
+Accessing the Application after successful deployment:
 
-    kubectl get pods -w
+  Fetch the IP address assigned to the load balancer:
 
-Accessing the Application
-
-After successful deployment:
-
-    Fetch the IP address assigned to the load balancer:
-
-    bash
-
-kubectl get svc | grep <name-of-loadbalancer-service>
-
+  ```bash
+  kubectl get svc | grep frontend
+  ```
 Access the application using the IP address from your browser.
